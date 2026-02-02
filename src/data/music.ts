@@ -52,17 +52,37 @@ export const albums: Album[] = [
 
 export interface Video {
   title: string;
-  youtubeId: string;
+  id: string; // YouTube ID
   thumbnail?: string;
 }
 
 export const videos: Video[] = [
   {
     title: "LA FILOSOFIA",
-    youtubeId: "xGRnZuzbbSc"
+    id: "xGRnZuzbbSc"
   },
   {
-    title: "NICO ROYALE - REAL LOVE /ACOUSTIC/ [ONE TAKE]",
-    youtubeId: "ByncyTcVBOU"
+    title: "CHE BELLA PELLE CHE HAI",
+    id: "5_O6r-Z-3XA"
+  },
+  {
+    title: "TANTO NON FA RUMORE",
+    id: "MgaUTr10cCA"
+  }
+];
+
+export interface Reel {
+  title: string;
+  id: string; // Instagram Reel ID
+}
+
+export const reels: Reel[] = [
+  {
+    title: "Instagram Reel 1",
+    id: "DPq3GPJDXdv"
+  },
+  {
+    title: "Instagram Reel 2",
+    id: "DO360rHjZGf"
   }
 ];

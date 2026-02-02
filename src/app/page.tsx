@@ -1,7 +1,7 @@
 "use client";
 
 import { Music, Play, Instagram, Mail, Calendar, MapPin, X, Menu } from "lucide-react";
-import { albums, videos } from "@/data/music";
+import { albums, videos, reels } from "@/data/music";
 import { events } from "@/data/events";
 import { useState } from "react";
 
@@ -107,6 +107,7 @@ export default function Home() {
           <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest">
             <a href="#music" className="hover:text-neutral-400 transition-colors">Music</a>
             <a href="#videos" className="hover:text-neutral-400 transition-colors">Videos</a>
+            <a href="#reels" className="hover:text-neutral-400 transition-colors">Reels</a>
             <a href="#tour" className="hover:text-neutral-400 transition-colors">Tour</a>
             <a href="#contact" className="hover:text-neutral-400 transition-colors">Contact</a>
           </div>
@@ -148,6 +149,7 @@ export default function Home() {
             <div className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center space-y-8 md:hidden animate-in fade-in slide-in-from-top-10 duration-200">
                <a href="#music" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">Music</a>
                <a href="#videos" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">Videos</a>
+               <a href="#reels" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">Reels</a>
                <a href="#tour" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">Tour</a>
                <a href="#contact" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">Contact</a>
             </div>
@@ -243,22 +245,43 @@ export default function Home() {
 
         <section id="videos" className="scroll-mt-24">
           <h2 className="text-4xl font-bold mb-12 tracking-tighter">VIDEOS</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {videos.map((video, index) => (
               <div key={index} className="aspect-video bg-neutral-900 rounded-lg border border-white/10 flex items-center justify-center relative group cursor-pointer overflow-hidden">
-                <a href={`https://www.youtube.com/watch?v=${video.youtubeId}`} target="_blank" rel="noopener noreferrer" className="absolute inset-0">
-                    <img 
-                      src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`} 
-                      alt={video.title}
-                      className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Play size={64} className="text-white opacity-80 group-hover:scale-110 transition-transform" />
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-                      <span className="font-bold text-lg line-clamp-1">{video.title}</span>
-                    </div>
+                <a href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener noreferrer" className="absolute inset-0">
+                  <img 
+                    src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`} 
+                    alt={video.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Play size={64} className="text-white opacity-80 group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+                    <span className="font-bold text-lg line-clamp-1">{video.title}</span>
+                  </div>
                 </a>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="reels" className="scroll-mt-24">
+          <h2 className="text-4xl font-bold mb-12 tracking-tighter">REELS</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {reels.map((reel, index) => (
+              <div key={index} className="aspect-[3/4] bg-neutral-900 rounded-lg border border-white/10 flex items-center justify-center relative group overflow-hidden">
+                 <div className="w-full h-full bg-black">
+                   <iframe 
+                     src={`https://www.instagram.com/reel/${reel.id}/embed/?hidecaption=1&autoplay=1`}
+                     className="w-full h-full"
+                     frameBorder="0"
+                     scrolling="no"
+                     allowTransparency={true}
+                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                     allowFullScreen
+                   ></iframe>
+                 </div>
               </div>
             ))}
           </div>
@@ -302,8 +325,8 @@ export default function Home() {
         <section id="contact" className="scroll-mt-24 text-center max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold mb-8 tracking-tighter">CONTACT</h2>
           <p className="text-neutral-400 mb-8">For booking and inquiries.</p>
-          <a href="mailto:contact@matteoortuso.com" className="inline-flex items-center gap-2 text-xl hover:text-neutral-400 transition-colors">
-            <Mail /> contact@matteoortuso.com
+          <a href="mailto:ortusomatteo11@gmail.com" className="inline-flex items-center gap-2 text-xl hover:text-neutral-400 transition-colors">
+            <Mail /> ortusomatteo11@gmail.com
           </a>
         </section>
 
@@ -334,7 +357,7 @@ export default function Home() {
                 <path d="M8 18.08c1.74-1.018 4.218-1.193 5.748-.71"></path>
               </svg>
             </a>
-            <a href="mailto:contact@matteoortuso.com" className="hover:text-white transition-colors">
+            <a href="mailto:ortusomatteo11@gmail.com" className="hover:text-white transition-colors">
                <Mail size={24} />
             </a>
         </div>
