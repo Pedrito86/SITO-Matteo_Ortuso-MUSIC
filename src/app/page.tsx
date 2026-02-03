@@ -147,7 +147,18 @@ export default function Home() {
 
           {/* Mobile Menu Overlay */}
           {isMenuOpen && (
-            <div className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center space-y-8 md:hidden animate-in fade-in slide-in-from-top-10 duration-200">
+            <div className="fixed inset-0 bg-black z-[60] flex flex-col items-center justify-center space-y-8 md:hidden animate-in fade-in slide-in-from-top-10 duration-200">
+               {/* Internal Header for Close Button */}
+               <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center border-b border-white/10">
+                  <span className="font-bold text-xl tracking-tighter">ORTUSO</span>
+                  <button 
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-white focus:outline-none"
+                  >
+                    <X size={24} />
+                  </button>
+               </div>
+               
                <a href="#project" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">The Project</a>
                <a href="#music" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">Music</a>
                <a href="#videos" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">Videos</a>
