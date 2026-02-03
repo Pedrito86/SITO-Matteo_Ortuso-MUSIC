@@ -147,9 +147,9 @@ export default function Home() {
 
           {/* Mobile Menu Overlay */}
           {isMenuOpen && (
-            <div className="fixed inset-0 bg-black z-[60] flex flex-col items-center justify-start pt-32 space-y-6 md:hidden animate-in fade-in slide-in-from-top-10 duration-200">
+            <div className="fixed inset-0 bg-neutral-900 z-[60] flex flex-col items-center justify-start pt-[45vh] pb-12 overflow-y-auto space-y-6 md:hidden animate-in fade-in slide-in-from-top-10 duration-200">
                {/* Internal Header for Close Button */}
-               <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center border-b border-white/10">
+               <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center border-b border-white/10 bg-neutral-900 z-50">
                   <span className="font-bold text-xl tracking-tighter">ORTUSO</span>
                   <button 
                     onClick={() => setIsMenuOpen(false)}
@@ -368,7 +368,6 @@ export default function Home() {
                      className="w-full h-full"
                      frameBorder="0"
                      scrolling="no"
-                     allowTransparency={true}
                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                      allowFullScreen
                    ></iframe>
