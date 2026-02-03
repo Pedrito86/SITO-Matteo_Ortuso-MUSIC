@@ -104,7 +104,8 @@ export default function Home() {
           <span className="font-bold text-xl tracking-tighter z-50 relative">ORTUSO</span>
           
           {/* Desktop Menu */}
-          <div className="flex gap-4 md:gap-8 text-[10px] md:text-sm uppercase tracking-widest items-center">
+          <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest items-center">
+            <a href="#project" className="hover:text-neutral-400 transition-colors">The Project</a>
             <a href="#music" className="hover:text-neutral-400 transition-colors">Music</a>
             <a href="#videos" className="hover:text-neutral-400 transition-colors">Videos</a>
             <a href="#reels" className="hover:text-neutral-400 transition-colors">Reels</a>
@@ -137,7 +138,7 @@ export default function Home() {
               </svg>
             </a>
             <button 
-              className="hidden text-white focus:outline-none"
+              className="md:hidden text-white focus:outline-none"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -147,6 +148,7 @@ export default function Home() {
           {/* Mobile Menu Overlay */}
           {isMenuOpen && (
             <div className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center space-y-8 md:hidden animate-in fade-in slide-in-from-top-10 duration-200">
+               <a href="#project" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">The Project</a>
                <a href="#music" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">Music</a>
                <a href="#videos" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">Videos</a>
                <a href="#reels" onClick={() => setIsMenuOpen(false)} className="text-2xl font-bold tracking-tighter hover:text-neutral-400">Reels</a>
@@ -160,6 +162,84 @@ export default function Home() {
       {/* Content Placeholders */}
       <div className="max-w-6xl mx-auto px-4 py-12 md:py-20 space-y-20 md:space-y-32">
         
+        <section id="project" className="scroll-mt-24">
+          <div className="flex flex-col md:flex-row gap-12 items-start">
+            <div className="w-full md:w-1/2 space-y-8">
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-white">THE PROJECT <span className="text-blue-500">BLU</span></h2>
+              <div className="space-y-6 text-neutral-300 font-light leading-relaxed text-lg">
+                <p>
+                  <strong className="text-white font-medium">"Blu"</strong> è un progetto nato dall'incontro tra due musicisti, <span className="text-white">Matteo Ortuso</span> (voce, chitarra, autore dei brani) e <span className="text-white">Marco Indino</span> (tromba, flicorno, produzione artistica).
+                </p>
+                <p>
+                  Nel live set "acustico", testi profondi si intrecciano e dialogano costantemente con le melodie delicate dei fiati, assumendo così sonorità del tutto particolari.
+                </p>
+                <p>
+                  L'aspetto cantautorale, anche se centrale, non prende mai il sopravvento: voci, chitarra ed ottoni viaggiano in perfetta armonia, sviluppando così un sound caldo pieno di spazi dove ogni singola nota acquista un valore speciale.
+                </p>
+                <p>
+                  "Blu" è anche il nome del primo EP uscito a novembre 2025, con cui si presenta il progetto in formazione completa (voce, sezione fiati, tastiere, basso e batteria), proponendo un sound pieno, coinvolgente e ricco di sfumature.
+                </p>
+              </div>
+              
+              {/* Noise Studio Badge */}
+              <div className="mt-8 pt-8 border-t border-white/10 flex items-center gap-4">
+                 <div className="text-right text-xs uppercase tracking-widest text-neutral-500">
+                    Produced by<br/>Francesco Chiari
+                 </div>
+                 <div className="h-12 w-px bg-white/20"></div>
+                 <div className="flex items-center gap-2 border border-white/30 px-4 py-2 rounded bg-neutral-900/50">
+                    <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                    <div className="flex flex-col leading-none">
+                       <span className="text-[10px] font-bold tracking-[0.2em] text-neutral-400">RECORDING</span>
+                       <span className="font-bold tracking-tighter text-lg">NOISE STUDIO</span>
+                    </div>
+                 </div>
+              </div>
+            </div>
+
+            <div className="w-full md:w-1/2 grid grid-cols-1 gap-6">
+               {/* Matteo Card */}
+               <div className="bg-neutral-900 border border-white/10 rounded-lg p-6 hover:bg-neutral-800 transition-colors group">
+                  <div className="flex items-center gap-6 mb-4">
+                     <div className="w-24 h-24 rounded-full bg-neutral-800 overflow-hidden border-2 border-white/10 group-hover:border-white/30 transition-colors shrink-0">
+                        <img src="/images/hero-right.jpg" alt="Matteo Ortuso" className="w-full h-full object-cover object-top" />
+                     </div>
+                     <div>
+                        <h3 className="text-xl font-bold tracking-tight">MATTEO ORTUSO</h3>
+                        <p className="text-xs uppercase tracking-widest text-neutral-400">Vocals • Guitar • Songwriter</p>
+                     </div>
+                  </div>
+               </div>
+
+               {/* Marco Card */}
+               <div className="bg-neutral-900 border border-white/10 rounded-lg p-6 hover:bg-neutral-800 transition-colors group">
+                  <div className="flex items-center gap-6 mb-4">
+                     <div className="w-24 h-24 rounded-full bg-neutral-800 overflow-hidden border-2 border-white/10 group-hover:border-white/30 transition-colors shrink-0">
+                        <img src="/images/marco.jpg" alt="Marco Indino" className="w-full h-full object-cover object-top" />
+                     </div>
+                     <div>
+                        <h3 className="text-xl font-bold tracking-tight">MARCO INDINO</h3>
+                        <p className="text-xs uppercase tracking-widest text-neutral-400">Trumpet • Flugelhorn • Art. Prod.</p>
+                     </div>
+                  </div>
+               </div>
+               
+               {/* EP Cover Placeholder */}
+               <div className="w-64 aspect-square rounded-lg overflow-hidden relative group mt-4 border border-white/10 mx-auto">
+                  <img 
+                     src="/images/blu-cover.png" 
+                     alt="BLU - The New EP" 
+                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                     <h4 className="text-3xl font-bold tracking-tighter text-white">BLU</h4>
+                     <p className="text-xs uppercase tracking-widest text-neutral-300">The New EP • Nov 2025</p>
+                  </div>
+               </div>
+            </div>
+          </div>
+        </section>
+
         <section id="music" className="scroll-mt-24">
           <h2 className="text-4xl font-bold mb-12 tracking-tighter">LATEST MUSIC</h2>
           <div className="grid md:grid-cols-2 gap-8">
