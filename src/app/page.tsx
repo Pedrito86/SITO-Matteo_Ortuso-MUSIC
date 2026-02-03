@@ -82,10 +82,10 @@ export default function Home() {
         </div>
         
         <div className="relative z-30 text-center px-4">
-          <h1 className="text-5xl md:text-9xl font-bold tracking-tighter mb-4 animate-fade-in drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+          <h1 className="text-7xl md:text-9xl font-bold tracking-tighter mb-4 animate-fade-in drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
             MATTEO ORTUSO
           </h1>
-          <p className="text-lg md:text-2xl font-light tracking-widest uppercase mb-8 text-neutral-200 drop-shadow-md">
+          <p className="text-xl md:text-2xl font-light tracking-widest uppercase mb-8 text-neutral-200 drop-shadow-md">
             Musician & Artist
           </p>
           <button 
@@ -104,7 +104,7 @@ export default function Home() {
           <span className="font-bold text-xl tracking-tighter z-50 relative">ORTUSO</span>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8 text-sm uppercase tracking-widest">
+          <div className="flex gap-4 md:gap-8 text-[10px] md:text-sm uppercase tracking-widest items-center">
             <a href="#music" className="hover:text-neutral-400 transition-colors">Music</a>
             <a href="#videos" className="hover:text-neutral-400 transition-colors">Videos</a>
             <a href="#reels" className="hover:text-neutral-400 transition-colors">Reels</a>
@@ -137,7 +137,7 @@ export default function Home() {
               </svg>
             </a>
             <button 
-              className="md:hidden text-white focus:outline-none"
+              className="hidden text-white focus:outline-none"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
