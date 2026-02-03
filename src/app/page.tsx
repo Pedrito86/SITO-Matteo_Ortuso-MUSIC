@@ -172,8 +172,8 @@ export default function Home() {
                      height="100%" 
                      src={
                         latestAlbum.tracks[activeTrackIndex].youtubeId 
-                          ? `https://www.youtube.com/embed/${latestAlbum.tracks[activeTrackIndex].youtubeId}?list=${latestAlbum.youtubeId}&autoplay=1&rel=0`
-                          : `https://www.youtube.com/embed/videoseries?list=${latestAlbum.youtubeId}&index=${activeTrackIndex}&autoplay=1&rel=0`
+                          ? `https://www.youtube.com/embed/${latestAlbum.tracks[activeTrackIndex].youtubeId}?list=${latestAlbum.youtubeId}&autoplay=1&playsinline=1&rel=0`
+                          : `https://www.youtube.com/embed/videoseries?list=${latestAlbum.youtubeId}&index=${activeTrackIndex}&autoplay=1&playsinline=1&rel=0`
                      }
                      title="YouTube video player" 
                      frameBorder="0" 
