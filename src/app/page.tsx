@@ -226,7 +226,7 @@ export default function Home() {
                <div className="bg-neutral-900 border border-white/10 rounded-lg p-6 hover:bg-neutral-800 transition-colors group">
                   <div className="flex items-center gap-6 mb-4">
                      <div className="w-24 h-24 rounded-full bg-neutral-800 overflow-hidden border-2 border-white/10 group-hover:border-white/30 transition-colors shrink-0">
-                        <img src="/images/marco.jpg" alt="Marco Indino" className="w-full h-full object-cover object-top" />
+                        <img src="/images/marco-indino.jpg" alt="Marco Indino" className="w-full h-full object-cover object-top" />
                      </div>
                      <div>
                         <h3 className="text-xl font-bold tracking-tight">MARCO INDINO</h3>
