@@ -16,7 +16,7 @@ export interface Album {
 export const albums: Album[] = [
   {
     title: "BLU",
-    year: "2024",
+    year: "2025",
     cover: "/images/blu-cover.png", 
     youtubeId: "OLAK5uy_lh9UHHW9I1e34R793CVvx175D9L0u6Gho",
     tracks: [
