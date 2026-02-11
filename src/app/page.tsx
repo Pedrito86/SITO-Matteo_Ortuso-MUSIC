@@ -1,6 +1,6 @@
 "use client";
 
-import { Music, Play, Instagram, Mail, Calendar, MapPin, X, Menu } from "lucide-react";
+import { Music, Play, Instagram, Mail, Calendar, MapPin, X, Menu, Phone } from "lucide-react";
 import { albums, videos, reels } from "@/data/music";
 import { events } from "@/data/events";
 import { useState } from "react";
@@ -147,7 +147,7 @@ export default function Home() {
 
           {/* Mobile Menu Overlay */}
           {isMenuOpen && (
-            <div className="fixed inset-0 bg-neutral-900 z-[60] flex flex-col items-center justify-start pt-[45vh] pb-12 overflow-y-auto space-y-6 md:hidden animate-in fade-in slide-in-from-top-10 duration-200">
+            <div className="fixed inset-0 bg-neutral-900 z-[60] flex flex-col items-center justify-start pt-32 pb-12 overflow-y-auto space-y-6 md:hidden animate-in fade-in slide-in-from-top-10 duration-200">
                {/* Internal Header for Close Button */}
                <div className="absolute top-0 left-0 right-0 p-4 flex justify-between items-center border-b border-white/10 bg-neutral-900 z-50">
                   <span className="font-bold text-xl tracking-tighter">ORTUSO</span>
@@ -263,8 +263,8 @@ export default function Home() {
                      height="100%" 
                      src={
                         latestAlbum.tracks[activeTrackIndex].youtubeId 
-                          ? `https://www.youtube.com/embed/${latestAlbum.tracks[activeTrackIndex].youtubeId}?list=${latestAlbum.youtubeId}&autoplay=1&playsinline=1&rel=0`
-                          : `https://www.youtube.com/embed/videoseries?list=${latestAlbum.youtubeId}&index=${activeTrackIndex}&autoplay=1&playsinline=1&rel=0`
+                          ? `https://www.youtube.com/embed/${latestAlbum.tracks[activeTrackIndex].youtubeId}?autoplay=1&playsinline=1&rel=0&modestbranding=1`
+                          : `https://www.youtube.com/embed/videoseries?list=${latestAlbum.youtubeId}&index=${activeTrackIndex}&autoplay=1&playsinline=1&rel=0&modestbranding=1`
                      }
                      title="YouTube video player" 
                      frameBorder="0" 
@@ -366,11 +366,10 @@ export default function Home() {
                    <iframe 
                      src={`https://www.instagram.com/reel/${reel.id}/embed/?hidecaption=1&autoplay=1`}
                      className="w-full h-full"
-                     frameBorder="0"
-                     scrolling="no"
-                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                     frameBorder="0" 
+                     scrolling="no" 
                      allowFullScreen
-                   ></iframe>
+                  ></iframe>
                  </div>
               </div>
             ))}
@@ -412,12 +411,17 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="scroll-mt-24 text-center max-w-2xl mx-auto">
+        <section id="contact" className="scroll-mt-24 text-center">
           <h2 className="text-4xl font-bold mb-8 tracking-tighter">CONTACT</h2>
           <p className="text-neutral-400 mb-8">For booking and inquiries.</p>
-          <a href="mailto:ortusomatteo11@gmail.com" className="inline-flex items-center gap-2 text-xl hover:text-neutral-400 transition-colors">
-            <Mail /> ortusomatteo11@gmail.com
-          </a>
+          <div className="flex flex-col items-center gap-4">
+            <a href="mailto:ortusomatteo11@gmail.com" className="inline-flex items-center gap-2 text-xl hover:text-neutral-400 transition-colors">
+              <Mail /> ortusomatteo11@gmail.com
+            </a>
+            <a href="tel:+393400939406" className="inline-flex items-center gap-2 text-xl hover:text-neutral-400 transition-colors">
+              <Phone /> +39 340 093 9406
+            </a>
+          </div>
         </section>
 
       </div>
@@ -449,6 +453,9 @@ export default function Home() {
             </a>
             <a href="mailto:ortusomatteo11@gmail.com" className="hover:text-white transition-colors">
                <Mail size={24} />
+            </a>
+            <a href="tel:+393400939406" className="hover:text-white transition-colors">
+               <Phone size={24} />
             </a>
         </div>
         <p className="tracking-widest uppercase text-xs">&copy; {new Date().getFullYear()} Matteo Ortuso. All rights reserved.</p>

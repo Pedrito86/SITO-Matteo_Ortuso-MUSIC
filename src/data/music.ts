@@ -86,3 +86,20 @@ export const reels: Reel[] = [
     id: "DO360rHjZGf"
   }
 ];
+
+export interface TourDate {
+  date: string;
+  venue: string;
+  city: string;
+  ticketLink?: string;
+}
+
+export const tourDates: TourDate[] = [
+  // Example data - user can update this
+  // {
+  //   date: "15 LUG 2025",
+  //   venue: "Blue Note",
+  //   city: "Milano",
+  //   ticketLink: "https://ticketlink..."
+  // }
+];
