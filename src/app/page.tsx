@@ -3,13 +3,14 @@
 import { Music, Play, Instagram, Mail, Calendar, MapPin, X, Menu, Phone } from "lucide-react";
 import { albums, videos, reels } from "@/data/music";
 import { events } from "@/data/events";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const latestAlbum = albums[0];
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTrackIndex, setActiveTrackIndex] = useState(0);
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
   const handlePlayAlbum = () => {
     setActiveTrackIndex(0);
@@ -22,17 +23,18 @@ export default function Home() {
   };
 
   const handlePlayTrack = (index: number) => {
-    const track = latestAlbum.tracks[index];
-
-    if (typeof window !== "undefined" && /Mobi|Android/i.test(navigator.userAgent) && track.youtubeId) {
-      const url = `https://www.youtube.com/watch?v=${track.youtubeId}&autoplay=1&playsinline=1`;
-      window.open(url, "_blank");
-      return;
-    }
-
     setActiveTrackIndex(index);
     setIsPlaying(true);
   };
+
+  useEffect(() => {
+    if (isPlaying && iframeRef.current) {
+      iframeRef.current.contentWindow?.postMessage(
+        JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+        "*"
+      );
+    }
+  }, [isPlaying, activeTrackIndex]);
 
   const handleClosePlayer = () => {
     setIsPlaying(false);
@@ -266,13 +268,15 @@ export default function Home() {
                {/* Album Cover or Player */}
                {isPlaying && latestAlbum.youtubeId ? (
                  <div className="absolute inset-0 w-full h-full bg-black">
-                   <iframe 
+                  <iframe
+                    key={latestAlbum.tracks[activeTrackIndex].youtubeId ?? `${activeTrackIndex}`}
+                    ref={iframeRef}
                      width="100%" 
                      height="100%" 
                      src={
                         latestAlbum.tracks[activeTrackIndex].youtubeId 
-                          ? `https://www.youtube.com/embed/${latestAlbum.tracks[activeTrackIndex].youtubeId}?autoplay=1&playsinline=1&rel=0&modestbranding=1`
-                          : `https://www.youtube.com/embed/videoseries?list=${latestAlbum.youtubeId}&index=${activeTrackIndex}&autoplay=1&playsinline=1&rel=0&modestbranding=1`
+                          ? `https://www.youtube.com/embed/${latestAlbum.tracks[activeTrackIndex].youtubeId}?autoplay=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1`
+                          : `https://www.youtube.com/embed/videoseries?list=${latestAlbum.youtubeId}&index=${activeTrackIndex}&autoplay=1&playsinline=1&rel=0&modestbranding=1&enablejsapi=1`
                      }
                      title="YouTube video player" 
                      frameBorder="0" 
