@@ -22,6 +22,14 @@ export default function Home() {
   };
 
   const handlePlayTrack = (index: number) => {
+    const track = latestAlbum.tracks[index];
+
+    if (typeof window !== "undefined" && /Mobi|Android/i.test(navigator.userAgent) && track.youtubeId) {
+      const url = `https://www.youtube.com/watch?v=${track.youtubeId}&autoplay=1&playsinline=1`;
+      window.open(url, "_blank");
+      return;
+    }
+
     setActiveTrackIndex(index);
     setIsPlaying(true);
   };
