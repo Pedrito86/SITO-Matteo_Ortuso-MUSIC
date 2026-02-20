@@ -459,6 +459,11 @@ export default function Home() {
             </a>
         </div>
         <p className="tracking-widest uppercase text-xs">&copy; {new Date().getFullYear()} Matteo Ortuso. All rights reserved.</p>
+        <p className="mt-4 text-[11px] text-neutral-500 space-x-4">
+          <a href="/privacy-policy" className="underline hover:text-neutral-300">Privacy Policy</a>
+          <span>|</span>
+          <a href="/cookie-policy" className="underline hover:text-neutral-300">Cookie Policy</a>
+        </p>
       </footer>
     </main>
   );
