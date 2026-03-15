@@ -476,6 +476,34 @@ export default function Home() {
           <span>|</span>
           <a href="/cookie-policy" className="underline hover:text-neutral-300">Cookie Policy</a>
         </p>
+        <div className="mt-4 flex justify-center px-4">
+          <a
+            href="https://www.sornexstudio.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-neutral-900/40 px-3 py-2 text-left hover:border-white/20 hover:bg-neutral-900/60 transition-colors"
+            aria-label="Sornex Studio"
+          >
+            <svg width="28" height="28" viewBox="0 0 64 64" aria-hidden="true">
+              <defs>
+                <linearGradient id="sornexStrokeA" x1="10" y1="16" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stopColor="#66b7ff" />
+                  <stop offset="1" stopColor="#8a7bff" />
+                </linearGradient>
+                <linearGradient id="sornexStrokeB" x1="4" y1="30" x2="44" y2="60" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stopColor="#4aa8ff" />
+                  <stop offset="1" stopColor="#b68bff" />
+                </linearGradient>
+              </defs>
+              <rect x="18" y="10" width="40" height="40" rx="12" fill="none" stroke="url(#sornexStrokeA)" strokeWidth="6" opacity="0.7" />
+              <rect x="6" y="22" width="40" height="40" rx="12" fill="none" stroke="url(#sornexStrokeB)" strokeWidth="6" />
+            </svg>
+            <div className="leading-tight">
+              <div className="text-[10px] uppercase tracking-widest text-neutral-400">Web Agency</div>
+              <div className="text-sm font-semibold text-neutral-100">Sornex Studio</div>
+            </div>
+          </a>
+        </div>
       </footer>
     </main>
   );
